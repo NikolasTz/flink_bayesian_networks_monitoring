@@ -1,0 +1,5 @@
+[{"name":"outlook","trueParameters":[],"cardinality":3,"values":["Sunny","Overcast","Rain"],"parents":[]},
+{"name":"temp","trueParameters":[],"cardinality":3,"values":["Hot","Mild","Cool"],"parents":[]},
+{"name":"humidity","trueParameters":[],"cardinality":2,"values":["High","Normal"],"parents":[] },
+{"name":"wind","trueParameters":[],"cardinality":2,"values":["Weak","Strong"],"parents":[]},
+{"name":"play","trueParameters":[],"cardinality":2,"values":["Yes","No"],"parents":[] }]
