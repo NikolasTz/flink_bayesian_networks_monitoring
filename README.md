@@ -44,6 +44,7 @@ The structure of the project is organized in the following picture. In particula
 </p>
 
 <p align="center">
+    
 ![Alt text](img/readme/project_structure.png)
 </p>
 
