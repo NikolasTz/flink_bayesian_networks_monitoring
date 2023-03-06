@@ -53,6 +53,7 @@ The structure of the project is organized in the following picture. In particula
 ## Project Configuration
 
 <p style="text-align: justify">
+
 We use real-world Bayesian Networks from the repository [[2]](https://www.bnlearn.com/bnrepository/). The Bayesian Network structure used in this project is a JSON object. For adding both Bayesian Networks and Naïve Bayes Classifiers, first the network needs to be converted to a JSON object. The conversion can be done using the following project [[3]](#!).
 
 This section contains details about all the available parameters which is needed to be setup and can be tweaked from the user to run a simple example from the whole pipeline of the job.
