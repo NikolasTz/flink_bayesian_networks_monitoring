@@ -3,15 +3,23 @@
 <p>
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-gree.svg)](https://opensource.org/licenses/MIT?style=plastic) 
-<a href="#!"><img src="https://img.shields.io/static/v1?label=&message=Bayesian Networks&color=gree?style=plastic"/></a>
-<a href="#!"><img src="https://img.shields.io/static/v1?label=&message=Naive Bayes Classifiers&color=gree?style=plastic"/></a>
-<a href="#!"><img src="https://img.shields.io/static/v1?label=&message=Apache Flink &color=blue?style=plastic"/></a>
-<a href="#!"><img src="https://img.shields.io/static/v1?label=&message=Apache Kafka&color=gree?style=plastic"/></a>
+<a href="#!"><img alt="lines of code" src="https://sloc.xyz/github/NikolasTz/flink_bayesian_networks_monitoring/?category=code"></a>
+<a href="https://www.bnlearn.com/bnrepository/" target="_blank"><img src="https://img.shields.io/static/v1?label=&message=Bayesian Networks&color=gree?style=plastic"/></a>
+<a href="https://www.cc.gatech.edu/home/isbell/classes/reading/papers/Rish.pdf" target="_blank" ><img src="https://img.shields.io/static/v1?label=&message=Naive Bayes Classifiers&color=gree?style=plastic"/></a>
+<a href="https://flink.apache.org/" target="_blank"><img src="https://img.shields.io/static/v1?label=&message=Apache Flink &color=blue?style=plastic"/></a>
+<a href="https://kafka.apache.org/" target="_blank"><img src="https://img.shields.io/static/v1?label=&message=Apache Kafka&color=gree?style=plastic"/></a>
 
-<a href="#!"><img src="https://img.shields.io/static/v1?label=&message=Functional Geometric Monitoring&color=gree?style=plastic"/></a>
-<a href="#!"><img src="https://img.shields.io/static/v1?label=&message=Approximate Distributed Counters&color=gree?style=plastic"/></a>
+<a href="http://users.softnet.tuc.gr/~minos/Papers/edbt19.pdf" target="_blank"><img src="https://img.shields.io/static/v1?label=&message=Functional Geometric Monitoring&color=gree?style=plastic"/></a>
+<a href="https://arxiv.org/abs/1108.3413" target="_blank"><img src="https://img.shields.io/static/v1?label=&message=Approximate Distributed Counters&color=gree?style=plastic"/></a>
+
+
+<a href="https://arxiv.org/abs/1602.03105" target="_blank"><img src="https://img.shields.io/static/v1?label=&message=Graphical Model Sketch&color=gree?style=plastic"/></a>
+<a href="http://dimacs.rutgers.edu/~graham/pubs/papers/cmencyc.pdf" target="_blank"><img src="https://img.shields.io/static/v1?label=&message=Count-Min&color=gree?style=plastic"/></a>
+<a href="http://dimacs.rutgers.edu/~graham/pubs/papers/streamsnet.pdf" target="_blank"><img src="https://img.shields.io/static/v1?label=&message=Fast-AGMS&color=gree?style=plastic"/></a>
+
 <a href="#!"><img src="https://img.shields.io/static/v1?label=&message=Laplace Smoothing&color=blue?style=plastic"/></a>
 <a href="#!"><img src="https://img.shields.io/static/v1?label=&message=Maximum Likelihood Estimation&color=gree?style=plastic"/></a>
+
 
 <!-- <a href="#!"><img src="https://badgen.net/badge/Bayesian Networks/green?icon="/></a> -->
 <!-- <a href="#!"><img src="https://img.shields.io/badge/Powered%20by-PostgreSQL-blue.svg"/></a> -->
@@ -37,20 +45,23 @@ The second approach resulted in an improvement of **100-1000x** in communication
 
 ## Project Structure
 
-<p style="text-align: justify">
+<p align="justify">
 
 The structure of the project is organized in the following picture. In particular, there are three packages. The first package refers exclusively to the approximate distributed counters, the second package refers to the Functional Geometric Monitoring and the last one refers to the common parts that are used by both packages.
 
 </p>
 
 <p align="center">
-    
+
 ![Alt text](img/readme/project_structure.png)
 </p>
 
 ## The basic architecture
 
+<p align="center">
+
 ![Alt text](img/readme/abstract_project_architecture.png)
+
 
 ## Project Configuration
 
@@ -72,7 +83,7 @@ Distributed Counters Configuration
 FGM Configuration
 
     Parameter:typeState
-    Description: This parameter defines the type of state that will be used from both sides(workers-coordinator) during the process. There are three available types of state: VECTOR, AGMS and COUNT_MIN sketches[^notes].
+    Description: This parameter defines the type of state that will be used from both sides(workers-coordinator) during the process. There are three available types of state: VECTOR, Fast-AGMS and COUNT_MIN sketches[^notes].
     
     Parameter: enableRebalancing
     Description: This parameter enables/disables the rebalancing mechanism of the FGM protocol. Moreover, this parameter combines with the value of lambda. The default value of lambda is 2.
@@ -118,6 +129,7 @@ Common Configuration
 ```
 
 <p style="text-align: justify">
+
 Below we can see two complete examples of using the aforementioned parameters. The first example corresponds to the method of DistCounters and the second example corresponds to the method of FGM method.
 
 In both examples, the dataset is the **HEPAR2** using **sourceHEPAR2** as inputTopic and **fdHEPAR2** as feedbackTopic. Furthermore, the number of workers that the distributed system will have is equal to **8** while the number of parallelism is equal to **4**. Finally, the accuracy is set to **0.1** and the likelihood of the estimated joint probability distribution is **90%**(error guarantees). 
