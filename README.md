@@ -31,9 +31,9 @@
 
 > Distributed and Online maintenance of Bayesian Networks in Apache Flink
 
-We implement a general, extensible and scalable system for the online maintenance of the well-known graphical model, the **Bayesian Network(BNs)**, and a special of this the **Naïve Bayes Classifier** in **Apache Flink** platform. We focus on the learning parameters of the Bayesian Network using the **Maximum Likelihood Estimation (MLE)** algorithm. 
+We implement a general, extensible and scalable system for the online maintenance of the well-known graphical model, the **Bayesian Network(BNs)**, and a special case of this the **Naïve Bayes Classifier** in **Apache Flink** platform. We focus on the task of learning parameters of the Bayesian Network using the **Maximum Likelihood Estimation (MLE)** algorithm. 
 
-The first objective is to accurately estimate the **joint probability distribution** of the Bayesian Network while providing user-defined error guarantees. The second objective focuses on using the minimum communication cost and at the same time implementing a system capable of scaling and handling high-dimensional, distributed, high-throughput, and rapid data streams. To solve this problem there are two approaches. The first approach uses approximate distributed counters, we implement two types of distributed counters, the first type refers to the **Randomized Counters(RC)** and the second one refers to the **Deterministic Counters(DC)**. The second approach is based on the use of the **Functional Geometric Monitoring(FGM)** [[1]](https://github.com/NikolasTz/Functional_Geometric_Monitoring) method. 
+The first objective is to accurately estimate the **joint probability distribution** of the Bayesian Network while providing user-defined error guarantees , the second one focuses on using the minimum communication cost and at the same time the general goal is to implement a system capable of handling high-dimensional, distributed, high-throughput, and rapid data streams and of course, has the ability to scale. To solve this problem there are two approaches. The first approach uses approximate distributed counters, we implement two types of distributed counters, the first type refers to the **Randomized Counters(RC)** and the second one refers to the **Deterministic Counters(DC)**. The second approach is based on the usage of **Functional Geometric Monitoring(FGM)** [[1]](https://github.com/NikolasTz/Functional_Geometric_Monitoring) method. 
 
 The second approach resulted in an improvement of **100-1000x** in communication cost over the maintenance of exact MLEs and an improvement of **10-100x** in communication cost over the first approach, while providing estimates of joint probability distribution with nearly the same accuracy as obtained by exact MLEs.
 
@@ -41,7 +41,7 @@ The second approach resulted in an improvement of **100-1000x** in communication
 
 ## Project Structure
 
-The structure of the project is organized in the following picture. In particular, there are three packages. The first package refers exclusively to the approximate distributed counters(**DistCounter**), the second package refers to the Functional Geometric Monitoring(**FGM**) and the last one refers to the common parts that are used by both packages(**Commons**).
+The structure of the project is presented in the following picture. In particular, there are three packages. The first package refers exclusively to the approximate distributed counters(**DistCounter**), the second package refers to the Functional Geometric Monitoring(**FGM**) and the last one refers to the common parts that are used by both packages(**Commons**).
 
 
 ![Alt text](img/readme/project_structure.png)
@@ -54,7 +54,7 @@ The structure of the project is organized in the following picture. In particula
 ## Project Configuration
 
 
-We use real-world Bayesian Networks from the repository [[2]](https://www.bnlearn.com/bnrepository/). The Bayesian Network structure used in this project is a JSON object. For adding both Bayesian Networks and Naïve Bayes Classifiers, first the network needs to be converted to a JSON object. The conversion can be done using the following project [[3]](https://github.com/NikolasTz/Bayesian_Networks).
+We use real-world Bayesian Networks from the repository [[2]](https://www.bnlearn.com/bnrepository/). The Bayesian Network structure in this project formulated as a JSON object. For the insertions of Bayesian Networks and Naïve Bayes Classifiers, first the network needs to be converted to an appropriate JSON object. The conversion can be done using the following project [[3]](https://github.com/NikolasTz/Bayesian_Networks).
 
 This section details all available parameters required for setup and can be modified by the user to run an example of the entire job pipeline.
 
